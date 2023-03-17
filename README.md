@@ -1,45 +1,24 @@
-# テーブル設計
+# README
 
-## users テーブル　
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column             | Type   | Options                  |
-| ------------------ | ------ | ------------------------ |
-| id                 | integer| not null, primary key    |
-| name               | string | null: false              |
-| name_kana          | string | null:false               |
-| email              | string | null: false,unique :true |
-| encrypted_password | string | null: false              |
-| birth_date         | date   | null:false               |
+Things you may want to cover:
 
-- has_many:items
-- has_many:purchases
+* Ruby version
 
+* System dependencies
 
-## items テーブル
+* Configuration
 
-| Column     | Type       | Options                        |
-| ---------  | ---------- | ------------------------------ |
-| id         | integer    | not null, primary key          |
-| user_id    | integer    | not null, foreign key          |
-| name       | string     | null:false                     |
-|description | references | null: false,                   |
-|user        | references | null: false, foreign_key: true |
-|category    | enum       | null:false                     |
-|condition   | enum       | null: false                    |
-|shipping    | enum       | null: false                    |
-| region     | enum       | null:false                     |
-|days_to_ship| int        | null: false, foreign_key: true |
+* Database creation
 
-- belongs_to:users
-- has_many :purchases
+* Database initialization
 
-## purchases テーブル
+* How to run the test suite
 
-| Column      | Type       | Options                        |
-| ------------| ---------- | ------------------------------ |
-| id          | integer    | not null, primary key          |
-| user_id     | integer    | not null, foreign key          |
-| item_id     | integer     | not null, foreign key         |
+* Services (job queues, cache servers, search engines, etc.)
 
-- belongs_to :user
-- belongs_to :item
+* Deployment instructions
+
+* ...
