@@ -1,6 +1,6 @@
 # テーブル設計
 
-## users
+## users テーブル　
 
 | Column             | Type   | Options                  |
 | ------------------ | ------ | ------------------------ |
@@ -15,7 +15,7 @@
 - has_many:purchases
 
 
-## items 
+## items テーブル
 
 | Column     | Type       | Options                        |
 | ---------  | ---------- | ------------------------------ |
@@ -33,7 +33,7 @@
 - belongs_to:users
 - has_many :purchases
 
-## purchases 
+## purchases テーブル
 
 | Column      | Type       | Options                        |
 | ------------| ---------- | ------------------------------ |
