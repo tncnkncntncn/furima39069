@@ -1,24 +1,45 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル　
 
-Things you may want to cover:
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| id                 | integer| not null, primary key    |
+| name               | string | null: false              |
+| name_kana          | string | null:false               |
+| email              | string | null: false,unique :true |
+| encrypted_password | string | null: false              |
+| birth_date         | date   | null:false               |
 
-* Ruby version
+- has_many:items
+- has_many:purchases
 
-* System dependencies
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column     | Type       | Options                        |
+| ---------  | ---------- | ------------------------------ |
+| id         | integer    | not null, primary key          |
+| user_id    | integer    | not null, foreign key          |
+| name       | string     | null:false                     |
+|description | references | null: false,                   |
+|user        | references | null: false, foreign_key: true |
+|category    | enum       | null:false                     |
+|condition   | enum       | null: false                    |
+|shipping    | enum       | null: false                    |
+| region     | enum       | null:false                     |
+|days_to_ship| int        | null: false, foreign_key: true |
 
-* Database initialization
+- belongs_to:users
+- has_many :purchases
 
-* How to run the test suite
+## purchases テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column      | Type       | Options                        |
+| ------------| ---------- | ------------------------------ |
+| id          | integer    | not null, primary key          |
+| user_id     | integer    | not null, foreign key          |
+| item_id     | integer     | not null, foreign key         |
 
-* Deployment instructions
-
-* ...
+- belongs_to :user
+- belongs_to :item
