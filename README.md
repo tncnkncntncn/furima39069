@@ -34,7 +34,7 @@
 - belongs_to:users
 - has_many :purchases
 
-## purchases 
+## orders
 
 | Column      | Type       | Options                        |
 | ------------| ---------- | ------------------------------ |
@@ -45,3 +45,11 @@
 - belongs_to :user
 - belongs_to :item
 
+## addresses
+
+| Column      | Type       | Options                        |
+| ------------| ---------- | ------------------------------ |
+| id          | integer    | not null, primary key          |
+| name        | string     | null: false                    |
+| address     | text       | null: false                    |
+| phone_number| integer    | null: false                    |
