@@ -4,7 +4,6 @@
 
 | Column             | Type   | Options                  |
 | ------------------ | ------ | ------------------------ |
-| id                 | integer| not null, primary key    |
 | nick_name          | string | null: false              |
 | first_name         | string | null: false              |
 | first_name_kana    | string | null:false               |
@@ -20,18 +19,17 @@
 
 ## items 
 
-| Column     | Type       | Options                        |
-| ---------  | ---------- | ------------------------------ |
-| id         | integer    | not null, primary key          |
-| name       | string     | null:false                     |
-| price      | integer    | null:false                     |
-|description | text       | null: false,                   |
-|user        | references | null: false, foreign_key: true |
-|category    | integer    | null:false                     |
-|condition   | integer    | null: false                    |
-|shipping    | integer    | null: false                    |
-| region     | integer    | null:false                     |
-|days_to_ship| integer    | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null:false                     |
+| price         | integer    | null:false                     |
+|description    | text       | null: false,                   |
+|user           | references | null: false, foreign_key: true |
+|category_id    | integer    | null:false                     |
+|condition_id   | integer    | null: false                    |
+|shipping_id    | integer    | null: false                    |
+| region_id     | integer    | null:false                     |
+|days_to_ship_id| integer    | null: false                    |
 
 - has_one :order
 - belongs_to:user
@@ -41,7 +39,6 @@
 
 | Column      | Type       | Options                        |
 | ------------| ---------- | ------------------------------ |
-| id          | integer    | not null, primary key :true   |
 | user        | references | not null, foreign key :true   |
 | item        | references | not null, foreign key :true   |
 
@@ -52,16 +49,15 @@
 
 ## addresses
 
-| Column      | Type       | Options                        |
-| ------------| ---------- | ------------------------------ |
-| id          | integer    | not null, primary key          |
-|postal_code  |string      | not_null                        |
-|prefecture_id| integer    | not_null                        |
-|city         |string      | not_null                        |
-|street       | string     | not_null                        |
-| building    |string      |                                |
-| phone_number| integer    | null: false                    |
-|order_history|references|not_null,foreign_key: true     |
+| Column      | Type       | Options                      |
+| ------------| ---------- | ---------------------------- |
+|postal_code  |string      | null:false                   |
+|prefecture_id| integer    | null:false                   |
+|city         |string      | null:false                   |
+|street       | string     | null:false                   |
+| building    |string      |                              |
+| phone_number| integer    | null: false                  |
+| order       |references|not_null,foreign_key: true      |
 
 - belongs_to :order
 
