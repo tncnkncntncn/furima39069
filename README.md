@@ -52,12 +52,12 @@
 | Column      | Type       | Options                      |
 | ------------| ---------- | ---------------------------- |
 |postal_code  |string      | null:false                   |
-|region_id    |integer    | null:false                   |
+|region_id    |integer     | null:false                   |
 |city         |string      | null:false                   |
-|street       |string     | null:false                   |
+|street       |string      | null:false                   |
 | building    |string      |                              |
-| phone_number|string     | null: false                  |
-| order       |references|not_null,foreign_key: true      |
+| phone_number|string      | null: false                  |
+| order       |references  |not_null,foreign_key: true    |
 
 - belongs_to :order
 
