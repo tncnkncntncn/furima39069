@@ -27,7 +27,7 @@
 |category_id    | integer    | null:false                     |
 |condition_id   | integer    | null: false                    |
 |shipping_id    | integer    | null: false                    |
-| region_id     | integer    | null:false                     |
+|region_id      | integer    | null:false                     |
 |days_to_ship_id| integer    | null: false                    |
 |user           | references | null: false, foreign_key: true |
 
