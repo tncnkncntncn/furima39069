@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
   end
 
@@ -14,6 +15,9 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+
+
 
   private
 
