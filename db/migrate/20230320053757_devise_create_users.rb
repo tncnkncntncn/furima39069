@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :first_name_kana,     null: false,default: ""
       t.string :name,                null: false,default: ""
       t.string :name_kana,           null: false,default: ""
-      t.date :birth_date,         null: false
+      t.date :birth_date,         null: false、default: ""
 
       
       ## Recoverable
