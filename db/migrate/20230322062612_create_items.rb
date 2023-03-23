@@ -15,4 +15,3 @@ class CreateItems < ActiveRecord::Migration[6.0]
     end
   end
 end
-#  :name,:price,:description, :category_id,:condition_id, :shipping_id,:region_id,:day_to_ship_id, 

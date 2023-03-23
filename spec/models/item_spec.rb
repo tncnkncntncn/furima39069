@@ -32,31 +32,31 @@ RSpec.describe Item, type: :model do
       end
 
       it 'カテゴリーの情報が必須であること' do
-        @item.category_id = ''
+        @item.category_id = Category.find(1)
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it '商品の状態の情報が必須であること' do
-        @item.condition_id = ''
+        @item.condition_id = Condition.find(1)
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it '配送料の負担の情報が必須であること' do
-        @item.shipping_id = ''
+        @item.shipping_id = Shipping.find(1)
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping can't be blank")
       end
 
       it '発送元の地域の情報が必須であること' do
-        @item.region_id = ''
+        @item.region_id = Region.find(1)
         @item.valid?
         expect(@item.errors.full_messages).to include("Region can't be blank")
       end
 
       it '発送までの日数の情報が必須であること' do
-        @item.day_to_ship_id = ''
+        @item.day_to_ship_id = DayToShip.find(1)
         @item.valid?
         expect(@item.errors.full_messages).to include("Day to ship can't be blank")
       end
@@ -77,6 +77,11 @@ RSpec.describe Item, type: :model do
         @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
+      it 'userが紐づいていないと保存できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end

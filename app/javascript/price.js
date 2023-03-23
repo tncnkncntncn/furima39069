@@ -11,7 +11,6 @@ function price(){
 
     const profitValue = price - tax;
     profit.textContent = profitValue;
-    console.log('input event fired');
   });
 };
 window.addEventListener('load', price);
