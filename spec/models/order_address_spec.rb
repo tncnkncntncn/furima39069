@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
-  describe '商品購入' do
   before do
-    @user = FactoryBot.create(:user)
-    @item = FactoryBot.create(:item)
-    @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
+    describe '商品購入' do
+
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)  
   end
+  
+
 
   context '内容に問題ない場合' do
     it "購入ができる時" do
@@ -16,7 +19,6 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.building = ''
       expect(@order_address).to be_valid
     end
-  end
 
   context '内容に問題がある場合' do
     it "tokenが空では登録できないこと" do
@@ -70,15 +72,16 @@ RSpec.describe OrderAddress, type: :model do
       expect(@order_address.errors.full_messages).to include("Phone number 半角数字で入れてください。○:09012345678  ×:090-1234-5678")
     end
     it "紐づいているuser_idがないと保存できない" do
-      @order_address.user_id = ''
+      @order_address.user = ''
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("User can't be blank")
     end
     it "紐づいているitem_idがないと保存できない" do
-      @order_address.item_id = ''
+      @order_address.item = ''
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Item can't be blank")
     end
+end
 end
 end
 end
