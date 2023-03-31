@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
-  belongs_to :condition
-  belongs_to :shipping
-  belongs_to :region
-  belongs_to :day_to_ship
+  #belongs_to :category
+  #belongs_to :condition
+  #belongs_to :shipping
+  #belongs_to :region
+  #belongs_to :day_to_ship
   has_one :order
   has_one_attached :image
   belongs_to :user
