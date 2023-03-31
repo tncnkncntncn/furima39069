@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit,:destroy]
   before_action :set_item, only: [:show, :edit, :update,:destroy]
-  
+  before_action :soldout_edit, only: [:edit]
   def index
     @item = Item.order(created_at: :desc)
   end
@@ -23,11 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user == current_user
-      render :edit
-    else
-      redirect_to root_path
-    end
+
   end
 
   def update
@@ -57,4 +53,12 @@ end
   def set_item
     @item = Item.find(params[:id])
   end
+  def soldout_edit
+       @item = Item.find(params[:id])
+    if @item.order.blank? && @item.user_id == current_user.id
+      render :edit
+    else
+      redirect_to root_path
+  end
+end
 end
