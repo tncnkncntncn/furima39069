@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update,:destroy]
   before_action :soldout_edit, only: [:edit]
   def index
-    @item = Item.order(created_at: :desc)
+    @item = Item.order
   end
 
   def new
