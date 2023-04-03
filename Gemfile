@@ -55,9 +55,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'rubocop', require: false
 end
-group :production do
-  gem 'pg'
-end
+#group :production do
+  #gem 'pg'
+#end
 gem 'devise'
 gem 'rspec-rails', '~> 4.0.0'
 gem 'pry-rails'
@@ -68,3 +68,7 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+gem 'mimemagic'
