@@ -6,7 +6,7 @@ app_path = '/var/www/furima39069'
 worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
-working_directory "/var/www/furima39069"
+working_directory "/var/www"
 
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/tmp/pids/unicorn.pid"
