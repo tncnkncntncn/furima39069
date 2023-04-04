@@ -6,8 +6,8 @@ app_path = '/var/www/furima39069'
 worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
-#working_directory "/var/www"
-working_directory File.expand_path('../../', __FILE__)
+working_directory "/var/www/furima39069"
+#working_directory File.expand_path('../../', __FILE__)
 
 
 
