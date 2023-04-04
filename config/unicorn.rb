@@ -1,6 +1,5 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
 app_path = File.expand_path('../../../', __FILE__)
-#app_path = File.expand_path('../../', __FILE__)
 
 stderr_path "#{app_path}/log/unicorn.stderr.log"
 
