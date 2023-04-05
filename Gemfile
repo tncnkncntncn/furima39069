@@ -78,3 +78,4 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 gem 'mail', '2.7.1'
+gem 'rake'
